@@ -1,0 +1,9 @@
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
+pydantic>=1.8.0
+typer>=0.4.0
+rich>=10.0.0
+joblib>=1.1.0
+PyYAML>=6.0
+pytest>=6.2.0

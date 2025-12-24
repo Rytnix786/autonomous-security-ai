@@ -1,0 +1,11 @@
+{
+  "test_version_main": {
+    "version": "test_version_main",
+    "timestamp": "2025-12-25T02:48:03.972178",
+    "model_path": "C:\\Users\\MEHEDI~1\\AppData\\Local\\Temp\\tmp7d9ovgqx\\dummy_model.joblib",
+    "files": [
+      "dummy_model.joblib"
+    ],
+    "metadata": {}
+  }
+}

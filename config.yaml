@@ -1,0 +1,71 @@
+# Autonomous Security AI Configuration
+
+# Simulator settings
+simulator:
+  # Number of users to simulate
+  user_count: 50
+  # Simulation duration in days
+  days: 7
+  # Base anomaly rate (0.05 = 5% of events are anomalous)
+  anomaly_rate: 0.05
+  # Window size in minutes for feature extraction
+  window_size_minutes: 5
+  
+# Feature engineering settings
+features:
+  # Rolling window size for aggregations (in minutes)
+  rolling_window_minutes: 5
+  # Session timeout (in minutes)
+  session_timeout_minutes: 30
+  
+# Model settings
+model:
+  # Contamination parameter for Isolation Forest (expected anomaly rate)
+  contamination: 0.05
+  # Random state for reproducible results
+  random_state: 42
+  # Minimum samples required for training
+  min_samples_for_training: 100
+  
+# Policy engine settings
+policy:
+  # Risk score thresholds for different actions
+  risk_thresholds:
+    # Allow if risk score <= 20
+    allow: 20
+    # Alert if risk score > 20 and <= 40
+    alert: 40
+    # Step up auth if risk score > 40 and <= 60
+    step_up_auth: 60
+    # Rate limit if risk score > 60 and <= 75
+    rate_limit: 75
+    # Restrict if risk score > 75 and <= 90
+    restrict: 90
+    # Lock if risk score > 90
+    lock: 90
+    # Quarantine if risk score > 95
+    quarantine: 95
+    
+  # Action cooldown periods (in minutes)
+  cooldowns:
+    step_up_auth: 5
+    rate_limit: 15
+    restrict: 30
+    lock: 60
+    quarantine: 120
+    
+# Feedback and retraining settings
+feedback:
+  # Minimum feedback items before retraining
+  min_feedback_for_retrain: 10
+  # Retrain interval in minutes (0 = disabled)
+  retrain_interval_minutes: 1440  # 24 hours
+  # Threshold for triggering retraining based on false positive rate
+  fp_threshold_for_retrain: 0.15  # 15% false positive rate
+  
+# Storage settings
+storage:
+  # Maximum number of incidents to keep in memory
+  max_incidents: 1000
+  # Maximum number of feedback items to store
+  max_feedback: 500
